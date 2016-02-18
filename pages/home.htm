@@ -1,0 +1,36 @@
+title = "Home"
+url = "/"
+layout = "default"
+is_hidden = 0
+==
+<?php
+function onInit()
+{
+    $user = \BackendAuth::getUser();
+    $profilePhoto = '';
+    if ( $user && $user -> avatar ) {
+            $profilePhoto = $user -> avatar;
+    }
+    $this['profilePhoto'] = $profilePhoto;
+}
+?>
+==
+<section id="main">
+    <header>
+        <span class="avatar">
+        {% if this.theme.photo_source == 'facebook' %}
+    	    <img width="122" height="122" src="http://graph.facebook.com/{{ this.theme.facebook_id }}/picture?width=122" alt="" />
+        {% elseif this.theme.photo_source == 'backend' and profilePhoto != '' %}
+	        <img width="122" height="122" src="{{ profilePhoto.getThumb(122, 122, 'crop') }}" alt="" />
+        {% else %}
+	        <img width="122" height="122" src="{{ 'assets/images/profile.jpg'|theme }}" alt="" />
+        {% endif %}
+        </span>
+        
+    	<h1>Admin Person</h1>
+    	<p>Computer Geek</p>
+    </header>
+    
+	{% partial 'extras' %}
+    {% partial 'social' %}
+</section>

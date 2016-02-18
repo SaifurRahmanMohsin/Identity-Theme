@@ -1,0 +1,32 @@
+name: Identity
+description: 'Identity theme from HTML5 Up'
+author: 'Saifur Rahman Mohsin'
+homepage: 'http://imoz.in'
+code: identity
+
+
+form:
+  fields:
+    site_name:
+      label: Site name
+      comment: The name of your site
+      default: Identity
+
+    photo_source:
+        label: Photo Source
+        type: dropdown
+        span: left
+        commentAbove: Set where the center photo is obtained from.
+        options:
+            custom: <b>Custom</b> - Shows profile.png in assets/images folder
+            facebook: <b>Facebook</b> - Shows your Facebook Profile Photo
+            backend: <b>Backend</b> - Shows your Backend User Photo
+
+    facebook_id:
+        label: Your Facebook Profile ID
+        span: right
+        commentAbove: You can get your Facebook ID using findmyfbid.com
+        trigger:
+            action: show
+            field: photo_source
+            condition: value[facebook]
