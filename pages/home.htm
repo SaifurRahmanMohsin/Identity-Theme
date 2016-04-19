@@ -19,7 +19,7 @@ function onInit()
     <header>
         <span class="avatar">
         {% if this.theme.photo_source == 'facebook' %}
-    	    <img width="122" height="122" src="http://graph.facebook.com/{{ this.theme.facebook_id }}/picture?width=122" alt="" />
+    	    <img width="122" height="122" src="//graph.facebook.com/{{ this.theme.facebook_id }}/picture?width=122" alt="" />
         {% elseif this.theme.photo_source == 'backend' and profilePhoto != '' %}
 	        <img width="122" height="122" src="{{ profilePhoto.getThumb(122, 122, 'crop') }}" alt="" />
         {% else %}
